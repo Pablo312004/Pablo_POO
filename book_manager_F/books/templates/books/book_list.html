@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Livros</title>
+    <link rel="stylesheet" href="{% static 'books/styles.css' %}" />
+  </head>
+  <body>
+    <h1>Lista de Livros</h1>
+    <ul>
+      {% for book in page_obj %}
+      <li>
+        <img src="{{ book.cover_image.url }}" alt="Capa do Livro" />
+        <strong>Título:</strong> {{ book.title }}<br />
+        <strong>Autor:</strong> {{ book.author }}<br />
+        <strong>Data de Publicação:</strong> {{ book.published_date }}
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="pagination">
+      <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; primeira</a>
+        <a href="?page={{ page_obj.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+          Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">próxima</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">última &raquo;</a>
+        {% endif %}
+      </span>
+    </div>
+  </body>
+</html>

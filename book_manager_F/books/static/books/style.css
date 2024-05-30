@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 5px 0;
+}
+
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
